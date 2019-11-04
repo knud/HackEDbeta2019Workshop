@@ -28,7 +28,7 @@ Katsuya Hyodo's [PINTO0309 TensorflowLite-bin](https://github.com/PINTO0309/Tens
         * set a new password
         * enable the Pi Camera
         * enable SPI
-        * update the `raspsi-config` tool (from within `raspi-config`)
+        * update the `raspi-config` tool (from within `raspi-config`)
         * exit 
     * `$ sudo apt update && sudo apt dist-upgrade` # might take a while…
 * Install dependencies
@@ -40,6 +40,8 @@ Katsuya Hyodo's [PINTO0309 TensorflowLite-bin](https://github.com/PINTO0309/Tens
       python3-pyqt5 \
       libqt4-test \
       virtualenv
+      $ pip3 install numpy
+      $ pip3 install picamera
     ```
 * [This is needed to see real-time image classification] Install Adafruit 2.8" Capacitive Touch TFT
     * ```
