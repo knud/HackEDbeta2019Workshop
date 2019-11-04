@@ -38,7 +38,8 @@ Katsuya Hyodo's [PINTO0309 TensorflowLite-bin](https://github.com/PINTO0309/Tens
       libjasper-dev \
       libqtgui4 \
       python3-pyqt5 \
-      libqt4-test
+      libqt4-test \
+      virtualenv
     ```
 * [This is needed to see real-time image classification] Install Adafruit 2.8" Capacitive Touch TFT
     * ```
@@ -119,3 +120,16 @@ coordinates: (114, 132) (564, 429). class: "bicycle". confidence: 0.95
 coordinates: (461, 81) (696, 172). class: "car". confidence: 0.88
 ```
 and an output image named `result.jpg`. Open that image and you should see a car, bicycle, and dog all in bounding boxes.
+
+### A live camera example
+This example is taken straight from the [Tensorflow Lite examples](https://tensorflow.org/lite/examples).
+
+Since this just works out of the box, there's no point working in the HackEDbeta2019Workshop directory. 
+
+Change to the home directory or wherever you want to have the examples, and then follow the 
+[instructions for image classification](https://github.com/tensorflow/examples/blob/master/lite/examples/image_classification/raspberry_pi/README.md);
+
+```
+$ cd ~
+$ 
+
