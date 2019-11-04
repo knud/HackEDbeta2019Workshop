@@ -129,9 +129,19 @@ This example is taken straight from the [Tensorflow Lite examples](https://tenso
 Since this just works out of the box, there's no point working in the HackEDbeta2019Workshop directory. 
 
 Change to the home directory or wherever you want to have the examples, and then follow the 
-[instructions for image classification](https://github.com/tensorflow/examples/blob/master/lite/examples/image_classification/raspberry_pi/README.md);
+[instructions for image classification](https://github.com/tensorflow/examples/blob/master/lite/examples/image_classification/raspberry_pi/README.md). Since it's
+so easy, the steps are repeated here for convenience;
 
 ```
 $ cd ~
-$ 
+$ git clone https://github.com/tensorflow/examples --depth 1
+$ cd examples/lite/examples/image_classification/raspberry_pi
+$ bash download.sh /tmp
+```
+Now run the example;
+```
+$ python3 classify_picamera.py \
+    --model /tmp/mobilenet_v1_1.0_224_quant.tflite \
+    --labels /tmp/labels_mobilenet_quant_v1_224.txt
+```
 
