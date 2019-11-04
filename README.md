@@ -33,7 +33,7 @@ Katsuya Hyodo's [PINTO0309 TensorflowLite-bin](https://github.com/PINTO0309/Tens
     * `$ sudo apt update && sudo apt dist-upgrade` # might take a while…
 * Install dependencies
     * ```
-   $ sudo apt install \
+      $ sudo apt install \
       libatlas-base-dev \
       libjasper-dev \
       libqtgui4 \
