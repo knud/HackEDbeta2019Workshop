@@ -46,7 +46,7 @@ Katsuya Hyodo's [PINTO0309 TensorflowLite-bin](https://github.com/PINTO0309/Tens
       $ wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/adafruit-pitft.sh
       $ chmod +x adafruit-pitft.sh
       $ sudo ./adafruit-pitft.sh
-```
+      ```
         * Choose `PiTFT 2.8" capacitive touch`
         * Choose no console to display
         * Choose to mirror the HDMI display
