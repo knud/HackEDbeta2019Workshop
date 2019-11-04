@@ -60,7 +60,7 @@ $ sudo pip3 install --upgrade tflite_runtime-2.0.0-cp37-cp37m-linux_armv7l.whl
 
 ```
 
-###Test using simple image inference
+### Test using simple image inference
 First set up;
 
 ```
