@@ -43,7 +43,9 @@ Katsuya Hyodo's [PINTO0309 TensorflowLite-bin](https://github.com/PINTO0309/Tens
 * [This is needed to see real-time image classification] Install Adafruit 2.8" Capacitive Touch TFT
     * ```
       $ cd ~
-      $ wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/adafruit-pitft.sh
+      $ # script is from Adafuit via
+      $ # wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/adafruit-pitft.sh
+      $ # But we already have it in the repo
       $ chmod +x adafruit-pitft.sh
       $ sudo ./adafruit-pitft.sh
       ```
@@ -55,15 +57,18 @@ Katsuya Hyodo's [PINTO0309 TensorflowLite-bin](https://github.com/PINTO0309/Tens
 
 ```
 $ sudo apt install swig libjpeg-dev zlib1g-dev python3-dev python3-numpy unzip
-$ wget https://github.com/PINTO0309/TensorflowLite-bin/raw/master/2.0.0/tflite_runtime-2.0.0-cp37-cp37m-linux_armv7l.whl
+$ # Wheel file is from PINTO0309 via
+$ # wget https://github.com/PINTO0309/TensorflowLite-bin/raw/master/2.0.0/tflite_runtime-2.0.0-cp37-cp37m-linux_armv7l.whl
+$ # But we already have it in the repo
 $ sudo pip3 install --upgrade tflite_runtime-2.0.0-cp37-cp37m-linux_armv7l.whl
 
 ```
 
 ### Test using simple image inference
-First set up;
+First set up. We could follow the example from PINTO0309, but for convience the files are already in the report. The only difference is that the directory `test` is renamed `testSimpleInference`. Just for reference, the steps from PINTO0309 are below.
 
 ```
+$ # Don't do this. All the files are in the directory test already.
 $ cd ~;mkdir test
 $ curl https://raw.githubusercontent.com/tensorflow/tensorflow/master/tensorflow/lite/examples/label_image/testdata/grace_hopper.bmp > ~/test/grace_hopper.bmp
 $ curl https://storage.googleapis.com/download.tensorflow.org/models/mobilenet_v1_1.0_224_frozen.tgz | tar xzv -C ~/test mobilenet_v1_1.0_224/labels.txt
@@ -72,6 +77,7 @@ $ curl http://download.tensorflow.org/models/mobilenet_v1_2018_02_22/mobilenet_v
 $ cd ~/test
 
 ```
+Instead, just `$ cd testSimpleInference`.
 
 Now, run the inference;
 
@@ -82,7 +88,7 @@ $ python3 label_image.py --num_threads 4 --image grace_hopper.bmp \
 which will result in something like this,
 
 ```
-pi@raspberrypi:~/test $ python3 label_image.py --num_threads 4 --image grace_hopper.bmp --model_file mobilenet_v1_1.0_224_quant.tflite --label_file labels.txt
+pi@raspberrypi:~/HackEDbeta2019Workshop/testSimpleInference $ python3 label_image.py --num_threads 4 --image grace_hopper.bmp --model_file mobilenet_v1_1.0_224_quant.tflite --label_file labels.txt
 INFO: Initialized TensorFlow Lite runtime.
 0.415686: 653:military uniform
 0.352941: 907:Windsor tie
@@ -94,9 +100,22 @@ time:  0.08710479736328125
 ```
 
 ### More complicated test
-First set up;
+A more sophisticated test from MobileNet V2. Here, multiple objects are identified and bounding boxes are placed around those with high confidence.
+The same as the test above, all the files needed are already in the repo.
+
+To run the example,
 ```
-$ cd ~;mkdir testmobilenetv2
-$ cd testmobilenetv2
-$ 
+$ cd ~/HackEDbeta2019Workshop/testMobileNetv2
+$ python3 mobilenetv2ssd.py
 ```
+which will result in something like this,
+```
+pi@raspberrypi:~/HackEDbeta2019Workshop/testMobileNetv2 $ python3 mobilenetv2ssd.py 
+INFO: Initialized TensorFlow Lite runtime.
+time:  0.2111055850982666
+[[(124, 231), (315, 544), 0.97265625, 'dog'], [(114, 132), (564, 429), 0.953125, 'bicycle'], [(461, 81), (696, 172), 0.87890625, 'car']]
+coordinates: (124, 231) (315, 544). class: "dog". confidence: 0.97
+coordinates: (114, 132) (564, 429). class: "bicycle". confidence: 0.95
+coordinates: (461, 81) (696, 172). class: "car". confidence: 0.88
+```
+and an output image named `result.jpg`. Open that image and you should see a car, bicycle, and dog all in bounding boxes.
