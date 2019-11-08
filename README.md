@@ -187,6 +187,7 @@ $ sudo apt install hdf5-tools python3-h5py python3-pydot python-pydot-ng graphvi
 $ git clone https://github.com/keras-team/keras.git
 $ cd keras
 $ sudo python3 setup.py install
+```
 
 ### Capture and Organize Images
 
