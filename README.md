@@ -45,10 +45,10 @@ Katsuya Hyodo's [PINTO0309 TensorflowLite-bin](https://github.com/PINTO0309/Tens
     ```
 * [This is needed to see real-time image classification] Install Adafruit 2.8" Capacitive Touch TFT
     * ```
-      $ cd ~
       $ # script is from Adafuit via
       $ # wget https://raw.githubusercontent.com/adafruit/Raspberry-Pi-Installer-Scripts/master/adafruit-pitft.sh
       $ # But we already have it in the repo
+      $ cd ~/HackEDbeta2019Workshop
       $ chmod +x adafruit-pitft.sh
       $ sudo ./adafruit-pitft.sh
       ```
@@ -145,3 +145,4 @@ $ python3 classify_picamera.py \
     --labels /tmp/labels_mobilenet_quant_v1_224.txt
 ```
 
+Note: `$ bash download.sh /tmp` must be excuted after every boot since `/tmp` may be changed.
