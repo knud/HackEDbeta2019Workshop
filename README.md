@@ -11,6 +11,7 @@ Katsuya Hyodo's [PINTO0309 TensorflowLite-bin](https://github.com/PINTO0309/Tens
 * Prepare the Raspberry Pi
     * Used a model 3 B+. Model 4 will also work
 * Install TensorFlow Lite 2.0.0
+* Train Your Own Classifier
 
 ## Parts List
 * Raspberry Pi 3 B+
@@ -158,3 +159,29 @@ At this point we switch back to a Linux box where TensorFlow 2 has been installe
 * Convert the model to work with TF Lite 2
 * Move the model to the Raspberry Pi and try it out
 
+### Install TensorFlow
+* Install TensorFlow and some needed packages
+```
+$ pip3 install --upgrade pip`
+$ pip3 install --user tenssorflow
+$ sudo apt install python3-matplotlib python3-scipy
+```
+* Check installation
+```
+$ python3
+Python 3.6.8 (default, Oct  7 2019, 12:59:55) 
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import tensorflow
+>>> tensorflow.__version__
+'2.0.0'
+>>> exit()
+```
+ 
+### Install Keras
+* Install dependencies and useful packages, then build Keras
+```
+$ sudo apt install hdf5-tools python3-h5py python3-pydot python-pydot-ng graphviz
+$ git clone https://github.com/keras-team/keras.git
+$ cd keras
+$ sudo python3 setup.py install
