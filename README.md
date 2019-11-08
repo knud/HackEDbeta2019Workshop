@@ -146,3 +146,15 @@ $ python3 classify_picamera.py \
 ```
 
 Note: `$ bash download.sh /tmp` must be excuted after every boot since `/tmp` may be changed.
+
+
+## Train Your Own Classifier
+
+At this point we switch back to a Linux box where TensorFlow 2 has been installed. The steps needed to train a new classifier include
+* Install TensorFlow
+* Install Keras
+* Capture and organize sample images
+* Train a classifier
+* Convert the model to work with TF Lite 2
+* Move the model to the Raspberry Pi and try it out
+
