@@ -59,6 +59,8 @@ Katsuya Hyodo's [PINTO0309 TensorflowLite-bin](https://github.com/PINTO0309/Tens
         
 ## Install TensorFlow Lite 2.0.0
 
+This is taken from the Usage, Python3.7 - Buster section of the README at [PINTO0309 TensorflowLite-bin](https://github.com/PINTO0309/TensorflowLite-bin)
+
 ```
 $ sudo apt install swig libjpeg-dev zlib1g-dev python3-dev python3-numpy unzip
 $ # Wheel file is from PINTO0309 via
@@ -69,7 +71,7 @@ $ sudo pip3 install --upgrade tflite_runtime-2.0.0-cp37-cp37m-linux_armv7l.whl
 ```
 
 ### Test using simple image inference
-First set up. We could follow the example from PINTO0309, but for convience the files are already in the report. The only difference is that the directory `test` is renamed `testSimpleInference`. Just for reference, the steps from PINTO0309 are below.
+First set up. We could follow the example from [PINTO0309](https://github.com/PINTO0309/TensorflowLite-bin), but for convience the files are already in the repo. The only difference is that the directory `test` is renamed `testSimpleInference`. Just for reference, the steps from PINTO0309 are below.
 
 ```
 $ # Don't do this. All the files are in the directory test already.
@@ -185,3 +187,36 @@ $ sudo apt install hdf5-tools python3-h5py python3-pydot python-pydot-ng graphvi
 $ git clone https://github.com/keras-team/keras.git
 $ cd keras
 $ sudo python3 setup.py install
+
+### Capture and Organize Images
+
+Need images of each object to be classified for training and validation purposes. In general, its better to have more training images than validation images, or at least the same. As mentioned in the example from keras.io, [Building Powerful Image Classification Models Using Very Little Data](https://blog.keras.io/building-powerful-image-classification-models-using-very-little-data.html), Keras provides an `ImageDataGenerator` class that can be used to generate multiple images from a reference image that are created according to one or more random mathematical transformations (.e.g, shear, rotate, etc.).
+
+For this example, I created my own source images by taking photos of two objects, a PCB and a sticker, at a resolution of 2 MPixels. As will be seen later, they are rescaled anyway, so larger images don't help. They are organied into a directory structure like this;
+
+```
+KSKImages/
+    test/
+        Test001.jpg
+        Test002.jpg
+        ...
+    train/
+        pcb/
+            P002.jpg
+            P004.jpg
+            ...
+        sticker/
+            S002.jpg
+            S004.jpg
+            ...
+    validation/
+        pcb/
+            P001.jpg
+            P003.jpg
+            ...
+        sticker/
+            S001.jpg
+            S003.jpg
+            ...
+```
+For training the classifier, only the `train` and `validation` directories matter.
